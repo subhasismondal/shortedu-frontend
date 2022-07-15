@@ -1,0 +1,46 @@
+<div *ngIf="message">
+  {{message}}
+</div>
+
+<div class="submit-form">
+  <div *ngIf="!submitted">
+    <div class="form-group">
+      <label for="question">Question</label>
+      <input
+        type="text"
+        class="form-control"
+        id="question"
+        required
+        [(ngModel)]="qadata.question"
+        name="question"
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="answer">Answer</label>
+
+      <input
+      class="form-control"
+      id="answer"
+      [(ngModel)]="qadata.answer"
+      name="answer" rows="5" cols="3">
+    </div>
+    <div class="form-group">
+      <label for="explanation">Explanation</label>
+
+      <textarea
+      class="form-control"
+      id="explanation"
+      [(ngModel)]="qadata.explanation"
+      name="explanation" rows="25" cols="14">
+    </textarea>
+    Total word count: <span id="display_count">0</span> words.
+    </div>
+    <button (click)="saveQAdata()" class="btn btn-success">Submit</button>
+  </div>
+
+  <div *ngIf="submitted">
+    <h4>You submitted successfully!</h4>
+    <button class="btn btn-success" (click)="newQAdata()">Add QA</button>
+  </div>
+</div>

@@ -7,6 +7,7 @@ import { ShowdataComponent} from './components/showdata/showdata.component';
 import { ShowimagesComponent} from './components/showimages/showimages.component';
 import { ShowcaComponent } from './components/showca/showca.component';
 import  {AddcaComponent} from './components/addca/addca.component'
+import { AddqaComponent } from './components/addqa/addqa.component';
 
 const routes: Routes = [
   { path: '', pathMatch:'full', component: ShowdataComponent },
@@ -16,6 +17,7 @@ const routes: Routes = [
   { path: 'showca', component: ShowcaComponent },
   { path: 'showdata', component: ShowdataComponent },
   { path: 'showimages', component: ShowimagesComponent },
+  { path: 'addqa', component:AddqaComponent}
 ];
 
 @NgModule({

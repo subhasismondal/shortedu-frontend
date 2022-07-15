@@ -12,6 +12,7 @@ import { ShowdataComponent } from './components/showdata/showdata.component';
 import { ShowimagesComponent } from './components/showimages/showimages.component';
 import { AddcaComponent } from './components/addca/addca.component';
 import { ShowcaComponent } from './components/showca/showca.component';
+import { AddqaComponent } from './components/addqa/addqa.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,7 +21,8 @@ import { ShowcaComponent } from './components/showca/showca.component';
     ShowdataComponent,
     ShowimagesComponent,
     AddcaComponent,
-    ShowcaComponent
+    ShowcaComponent,
+    AddqaComponent
   ],
   imports: [
     BrowserModule,
