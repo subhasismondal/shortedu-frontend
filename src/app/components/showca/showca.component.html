@@ -1,0 +1,18 @@
+<div  *ngIf="CAdata">
+  <div  *ngFor="let cas of CAdata">
+<div class="card">
+  <img
+    src={{cas.path}}
+    class="card-img-top"
+    alt="..."
+  />
+  <div class="card-body">
+    <h5 class="card-title">{{cas.title}}</h5>
+    <p class="card-text">
+      {{cas.description}}
+    </p>
+    <a href={{cas.url}} class="btn btn-primary">More</a>
+  </div>
+</div>
+  </div>
+</div>

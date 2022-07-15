@@ -1,0 +1,18 @@
+ <div class="card" style="margin:2em">
+    <div class="card-header text-center h3">
+      Study Notes
+      </div>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let csn of currentstudynotes">
+        <tr>
+          <td>{{csn.title}}</td>
+          <td>{{csn.description}}</td>
+        </tr>
+      </tbody>
+    </table>

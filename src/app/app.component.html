@@ -1,0 +1,30 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="active" href="/"><i class="fa fa-fw fa-home"></i> {{ title }}</a>
+    </div>
+     <ul class="nav navbar-nav">
+       <li class="nav-item">
+        <a routerLink="addgkfile" class="fa fa-fw fa-search">Study Notes with File</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="addgk" class="fa fa-fw fa-user">Study Notes</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="showimages" class="fa fa-fw fa-user">Show Images</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="showdata" class="fa fa-fw fa-user">Show Data</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="addca" class="fa fa-fw fa-user">Add CA</a>
+    </li>
+    <li class="nav-item">
+      <a routerLink="showca" class="fa fa-fw fa-user">Show CA</a>
+    </li>
+    </ul>
+  </div>
+</nav>
+<div class="container mt-3">
+  <router-outlet></router-outlet>
+</div>
