@@ -7,14 +7,12 @@ import { Observable } from 'rxjs';
 })
 export class CAservice {
 
-  private baseUrl = 'http://localhost:8081/api';
+  private baseUrl = 'http://65.20.72.240:8081/api';
 
   constructor(private http: HttpClient) { }
 
   uploadca(data): Observable<HttpEvent<any>> {
     const formData: FormData = new FormData();
-    const file= data.uploadfile;
-    formData.append('file', file);
     const req = new HttpRequest('POST', `${this.baseUrl}/uploadcas`, data, {
       reportProgress: true,
       responseType: 'json'
@@ -23,7 +21,6 @@ export class CAservice {
     return this.http.request(req);
   }
   post(url: string, postData: Object) {
-    console.log("inside post:"+postData);
     return this.http.post(url, postData);
 }
 

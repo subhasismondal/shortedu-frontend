@@ -22,7 +22,7 @@ export class ShowcaComponent implements OnInit {
       .subscribe(
         data => {
           this.CAdata = data;
-          this.ImgUrl =  'http://localhost:8081/images';
+          this.ImgUrl =  'http://65.20.72.240:8081/images';
         },
         error => {
           console.log(error);

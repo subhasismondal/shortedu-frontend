@@ -17,7 +17,6 @@ export class AddcaComponent implements OnInit {
   image: string;
   submitted : boolean = false;
   uploadError: string = '';
-  photo : any;
 
   constructor(private fb: FormBuilder, private router: Router, private caService: CAservice) { }
 
@@ -30,8 +29,7 @@ export class AddcaComponent implements OnInit {
       title    : ['', Validators.compose([Validators.required])],
       description     : ['', Validators.compose([Validators.required])],
       urltoimage         : [''],
-      url        : [''],
-      photo         : ['']
+      url        : ['']
     })
   }
 
@@ -40,37 +38,19 @@ export class AddcaComponent implements OnInit {
     if(!this.userForm.valid) {
       return false;
     }
-    if (this.userForm.get('photo').invalid) {
-      this.isPhotoError = true;
-    }
-
     this.uploadError = '';
     const formData = new FormData();
     formData.append("title", this.userForm.controls.title.value);
     formData.append("description", this.userForm.controls.description.value);
     formData.append("urltoimage", this.userForm.controls.urltoimage.value);
     formData.append("url", this.userForm.controls.url.value);
-    formData.append('photo', this.photo[0], this.photo.name);
-    //formData.append('photo', this.userForm.get('photo').value);
-    //console.log("title:"+this.userForm.controls.title.value);
-    //console.log("Phovo Value:"+this.userForm.get('photo').value);
-    // interval(1000).pipe(exhaustMap(() => this.apiService.post('http://localhost:8081/user/add', formData))).subscribe(resp => {
-    //     if(resp['status'] != 'success') {
-    //       this.uploadError = resp['statusMessage'];
-    //       return;
-    //     }
-    //     this.router.navigate(['/users'])
-    //   }, (resp)=> {
-    //     this.uploadError = 'Some error occured please try later';
-    //     console.log(resp);
-    //   });
-    // );
-    this.caService.post('http://localhost:8081/api/uploadcas', formData).subscribe(resp => {
+    this.caService.post('http://65.20.72.240:8081/api/uploadcas', formData).subscribe(resp => {
       if(resp['status'] != 'success') {
         this.uploadError = resp['statusMessage'];
         return;
       }
-      this.router.navigate(['/allnotes'])
+     // this.router.navigate(['/allnotes'])
+      this.submitted=true;
     }, (resp)=> {
       this.uploadError = 'Some error occured please try later';
       console.log(resp);
@@ -80,9 +60,10 @@ export class AddcaComponent implements OnInit {
   }
   upload(event: Event) {
     const target = event.target as HTMLInputElement;
-    this.photo = target.files as FileList;
-
-    console.log(this.photo[0]);
+}
+newCAdata() {
+  this.router.navigate(['/addcas']);
+  window.location.reload();
 }
 
 
