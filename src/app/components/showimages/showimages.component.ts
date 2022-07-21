@@ -21,7 +21,7 @@ export class ShowimagesComponent implements OnInit {
       .subscribe(
         data => {
           this.imageFiles = data;
-          this.ImgUrl =  'http://localhost:8081/images';
+          this.ImgUrl =  'http://65.20.72.240:8081/images';
         },
         error => {
           console.log(error);

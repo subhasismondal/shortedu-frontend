@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class QaserviceService {
-  private baseUrl = 'http://localhost:8081/api';
+  private baseUrl = 'http://65.20.72.240:8081/api';
 
   constructor(private http: HttpClient) { }
 

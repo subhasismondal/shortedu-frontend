@@ -14,7 +14,8 @@ export class UploadFilesComponent implements OnInit {
   userForm: FormGroup;
   isPhotoError = false;
   image: string;
-  submitted : boolean = false;
+  message: any;
+  submitted: boolean= false;
   uploadError: string = '';
   photo : any;
   constructor(private fb: FormBuilder, private router: Router, private apiService: UploadFileService) { }
@@ -49,26 +50,13 @@ export class UploadFilesComponent implements OnInit {
     formData.append("postdate", this.userForm.controls.postdate.value);
     formData.append("active", this.userForm.controls.active.value);
     formData.append('photo', this.photo[0], this.photo.name);
-    //formData.append('photo', this.userForm.get('photo').value);
-    //console.log("title:"+this.userForm.controls.title.value);
-    //console.log("Phovo Value:"+this.userForm.get('photo').value);
-    // interval(1000).pipe(exhaustMap(() => this.apiService.post('http://localhost:8081/user/add', formData))).subscribe(resp => {
-    //     if(resp['status'] != 'success') {
-    //       this.uploadError = resp['statusMessage'];
-    //       return;
-    //     }
-    //     this.router.navigate(['/users'])
-    //   }, (resp)=> {
-    //     this.uploadError = 'Some error occured please try later';
-    //     console.log(resp);
-    //   });
-    // );
-    this.apiService.post('http://localhost:8081/api/uploadfile', formData).subscribe(resp => {
+    this.apiService.post('http://65.20.72.240:8081/api/uploadfile', formData).subscribe(resp => {
       if(resp['status'] != 'success') {
         this.uploadError = resp['statusMessage'];
-        return;
+         return;
       }
-      this.router.navigate(['/allnotes'])
+      //this.router.navigate(['/uploadfile'])
+      this.submitted=true;
     }, (resp)=> {
       this.uploadError = 'Some error occured please try later';
       console.log(resp);
@@ -80,8 +68,10 @@ export class UploadFilesComponent implements OnInit {
   upload(event: Event) {
     const target = event.target as HTMLInputElement;
     this.photo = target.files as FileList;
-
-    console.log(this.photo[0]);
+}
+newUpload() {
+  this.router.navigate(['/addgkfile']);
+  window.location.reload();
 }
 
 

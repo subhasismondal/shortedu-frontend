@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 })
 export class UploadFileService {
 
-  private baseUrl = 'http://localhost:8081/api';
+  private baseUrl = 'http://65.20.72.240:8081/api';
 
   constructor(private http: HttpClient) { }
 
@@ -23,7 +23,6 @@ export class UploadFileService {
     return this.http.request(req);
   }
   post(url: string, postData: Object) {
-    console.log("inside post:"+postData);
     return this.http.post(url, postData);
 }
 

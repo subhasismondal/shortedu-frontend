@@ -1,3 +1,5 @@
+<div>
+<div *ngIf="!submitted">
 <form [formGroup]="userForm" (ngSubmit)="PostData(userForm)" enctype="multipart/form-data">
   <div class="form-group row">
       <label for="title" class="col-sm-2 col-form-label">Title</label>
@@ -53,3 +55,8 @@
       </div>
   </div>
 </form>
+    <div *ngIf="submitted">
+        <h4>You submitted successfully!</h4>
+        <button class="btn btn-success" (click)="newUpload()">Upload File</button>
+      </div> 
+</div>
